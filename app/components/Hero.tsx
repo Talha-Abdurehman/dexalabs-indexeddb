@@ -4,6 +4,7 @@ import { WavyBackground } from "@/components/ui/wavy-background";
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, BookOpen } from "lucide-react";
 import { useClerk } from "@clerk/nextjs";
+import MetaTitle from "@/app/components/MetaTitle";
 
 const Hero = () => {
   const { openSignIn } = useClerk();
@@ -11,13 +12,11 @@ const Hero = () => {
   return (
     <div className="w-full flex justify-center items-center flex-col pt-2">
       <WavyBackground
-        waveWidth={90}
+        waveWidth={100}
         containerClassName="overflow-hidden w-full max-w-screen"
         className="flex justify-center items-center flex-col gap-3"
       >
-        <h5 className="text-2xl py-1 px-4 rounded-full backdrop-blur-3xl">
-          A Visual Interface / Manager For IndexedDB
-        </h5>
+        <MetaTitle text={"A Visual Interface / Manager For IndexedDB"} />
         <div className="flex flex-col justify-center items-center gap-6">
           <h1 className="max-w-2xl text-7xl text-white text-center font-semibold">
             The Missing Devtool for IndexedDB
