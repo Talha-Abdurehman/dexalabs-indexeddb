@@ -5,28 +5,31 @@ import {
   NavigationMenuItem,
   NavigationMenuList,
   NavigationMenuLink,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
 const NavList = () => {
   return (
     <NavigationMenu>
       <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+        <NavigationMenuItem className="flex gap-3">
+          <NavigationMenuLink asChild>
             <Link href={"/"}>Home</Link>
           </NavigationMenuLink>
 
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+          <NavigationMenuLink asChild>
             <Link href={"/docs"}>Docs</Link>
           </NavigationMenuLink>
 
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+          <NavigationMenuLink asChild>
             <Link href={"/pricing"}>Pricing</Link>
           </NavigationMenuLink>
 
-          <NavigationMenuLink asChild className={navigationMenuTriggerStyle()}>
+          <NavigationMenuLink asChild>
             <Link href={"/about"}>About</Link>
+          </NavigationMenuLink>
+
+          <NavigationMenuLink asChild>
+            <Link href={"/developers"}>Developers</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>

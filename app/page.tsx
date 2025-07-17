@@ -1,13 +1,15 @@
 import Navbar from "@/app/components/Navbar";
 import Hero from "@/app/components/Hero";
+import About from "@/app/components/About";
 export default function Home() {
   return (
     <div className="w-screen flex flex-col justify-between items-center">
-      <header className="w-full z-20">
+      <header className="w-full z-50">
         <Navbar />
       </header>
-      <main className="z-10 overflow-x-hidden w-full">
+      <main className="overflow-x-hidden w-full space-y-12">
         <Hero />
+        <About />
       </main>
     </div>
   );
