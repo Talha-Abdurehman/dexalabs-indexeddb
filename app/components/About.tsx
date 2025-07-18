@@ -1,9 +1,9 @@
 import React from "react";
 import MetaTitle from "./MetaTitle";
 import {
-  BadgeQuestionMarkIcon,
+  TerminalIcon,
   SparklesIcon,
-  MonitorDotIcon,
+  BadgeQuestionMarkIcon,
   LockKeyholeIcon,
   CircuitBoardIcon,
 } from "lucide-react";
@@ -16,7 +16,7 @@ const About = () => {
       id: 1,
       title: "Visual DB Manager",
       para: "A clean and intuitive interface to create DBs, Object Stores, Indexes and CRUD Operations without touching code.",
-      icon: <MonitorDotIcon size={30} />,
+      icon: <TerminalIcon size={30} />,
     },
     {
       id: 2,
@@ -50,7 +50,7 @@ const About = () => {
         <h1 className="text-center max-w-3xl text-7xl">
           Built By Developers For Developers
         </h1>
-        <p className="text-xl w-3xl text-center max-w-2xl">
+        <p className="text-xl w-3xl text-center max-w-2xl font-medium text-neutral-400">
           Dexa Labs brings full control of IndexedDB to your browser with ZERO
           friction.
         </p>
@@ -65,8 +65,17 @@ const About = () => {
         </ContainerScroll>
       </div>
       <div className="flex flex-col items-center w-full h-full gap-3 py-24">
-        <h1 className="text-center max-w-3xl text-7xl">Packed With Features</h1>
-        <FeaturesSectionDemo />
+        <MetaTitle text="Features" icon={<BadgeQuestionMarkIcon size={20} />} />
+        <div className="flex flex-col justify-center items-center gap-6">
+          <h1 className="text-center max-w-3xl text-7xl">
+            Packed With Features
+          </h1>
+          <p className="text-xl w-3xl text-center max-w-2xl font-medium text-neutral-400">
+            Includes everything you need to understand, debug and manage
+            IndexedDB without touching the console.
+          </p>
+          <FeaturesSectionDemo />
+        </div>
       </div>
     </div>
   );

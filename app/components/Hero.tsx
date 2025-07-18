@@ -26,7 +26,7 @@ const Hero = () => {
           <h1 className="text-9xl text-white text-center font-semibold">
             Dexa Labs<span className="text-xl">&reg;</span>
           </h1>
-          <p className="text-xl w-3xl text-center">
+          <p className="text-xl w-3xl text-center font-medium">
             A powerful developer UI for IndexedDB inside your browser.
             Empowering PWA developers with real offline-first tooling.
           </p>
@@ -40,13 +40,10 @@ const Hero = () => {
               variant={"default"}
             >
               Get Started <ArrowUpRight />
+            </Button>{" "}
+            <Button size={"lg"} variant={"secondary"}>
+              Documentation <BookOpen />
             </Button>
-            <Link href={"/docs"}>
-              {" "}
-              <Button size={"lg"} variant={"secondary"}>
-                Documentation <BookOpen />
-              </Button>
-            </Link>
           </div>
           <div className="flex gap-6 pt-4">
             <div className="flex justify-center items-center w-full gap-1">
