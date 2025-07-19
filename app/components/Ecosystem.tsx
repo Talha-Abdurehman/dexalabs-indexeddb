@@ -45,7 +45,7 @@ function Ecosystem() {
   ];
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center gap-3 px-8">
+    <div className="w-full h-full flex flex-col justify-center items-center gap-3 py-24 px-8">
       <MetaTitle text="Ecosystem" icon={<LeafIcon size={20} />} />
       <div className="flex flex-col justify-center items-center gap-6">
         <h1 className="text-center max-w-3xl text-7xl">
