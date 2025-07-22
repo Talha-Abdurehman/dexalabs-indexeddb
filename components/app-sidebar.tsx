@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { IconSettings } from "@tabler/icons-react";
 import {
   AudioWaveform,
   BookOpen,
@@ -25,6 +26,8 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { NavSecondary } from "./nav-secondary";
+import { SettingsDialog } from "./settings-dialog";
 
 // This is sample data.
 const data = {
@@ -36,7 +39,7 @@ const data = {
   teams: [
     {
       name: "Dexa Labs",
-      logo: "/DexaLabsLogo.svg",
+      logo: AudioWaveform,
       plan: "Enterprise",
     },
   ],
@@ -144,9 +147,12 @@ const data = {
       icon: Map,
     },
   ],
+  navSecondary: [{ title: "Settings", url: "#", icon: IconSettings }],
 };
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const [settingsClicked, setSettingsClicked] = React.useState(false);
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
@@ -155,6 +161,16 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarContent>
         <NavMain items={data.navMain} />
         <NavProjects projects={data.projects} />
+        <NavSecondary
+          items={data.navSecondary}
+          onClick={() => setSettingsClicked(true)}
+        />
+        {settingsClicked && (
+          <SettingsDialog
+            isOpen={settingsClicked}
+            onClose={() => setSettingsClicked(false)}
+          />
+        )}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
