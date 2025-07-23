@@ -9,7 +9,7 @@ import { FlaskConicalIcon, StarIcon } from "lucide-react";
 import Link from "next/link";
 
 const Hero = () => {
-  const { openSignIn } = useClerk();
+  const { openSignIn, user } = useClerk();
 
   return (
     <div className="w-full flex justify-center items-center flex-col pt-2">

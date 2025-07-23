@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { useUser } from "@clerk/nextjs";
 import { IconSettings } from "@tabler/icons-react";
 import {
   AudioWaveform,
@@ -12,7 +13,7 @@ import {
   Map,
   PieChart,
   Settings2,
-  SquareTerminal,
+  DatabaseZapIcon,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -31,11 +32,6 @@ import { SettingsDialog } from "./settings-dialog";
 
 // This is sample data.
 const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
   teams: [
     {
       name: "Dexa Labs",
@@ -45,14 +41,14 @@ const data = {
   ],
   navMain: [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
+      title: "Databases",
+      url: "/database",
+      icon: DatabaseZapIcon,
       isActive: true,
       items: [
         {
-          title: "History",
-          url: "#",
+          title: "Details",
+          url: "/dashboard/database",
         },
         {
           title: "Starred",
@@ -152,6 +148,11 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const [settingsClicked, setSettingsClicked] = React.useState(false);
+  const { user, isSignedIn, isLoaded } = useUser();
+
+  if (!isLoaded) {
+    return null;
+  }
 
   return (
     <Sidebar collapsible="icon" {...props}>
@@ -173,7 +174,15 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         )}
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        {isSignedIn && (
+          <NavUser
+            user={{
+              firstName: user.firstName || "",
+              primaryEmailAddress: user.primaryEmailAddress?.emailAddress || "",
+              imageUrl: user.imageUrl,
+            }}
+          />
+        )}
       </SidebarFooter>
       <SidebarRail />
     </Sidebar>

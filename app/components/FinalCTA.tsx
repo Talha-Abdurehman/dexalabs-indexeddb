@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 
 const FinalCTA = () => {
   return (
-    <div className="bg-gradient-to-b from-black to-primeViolet/50 w-full h-screen backdrop-blur-sm flex justify-center items-center flex-col gap-9">
+    <div className="bg-gradient-to-b from-black to-primeViolet/50 w-full backdrop-blur-sm flex justify-center items-center flex-col gap-9 py-24">
       <Image
         src="/DexaLabsLogo.svg"
         alt="Dexa Labs Logo"
